@@ -15,6 +15,7 @@ assert template is not None, 'could not read this file'
 
 h, w = template.shape[:2]
 
+print('{} {}'.format(h,w))
 res = cv.matchTemplate(imgray, template, cv.TM_CCOEFF)
 
 min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)

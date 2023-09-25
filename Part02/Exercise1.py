@@ -35,7 +35,7 @@ imgL = img[0:rows, 0:cols//2]      # parte esquerda da imagem
 frames = []
 
 
-for i in range(8):
+for i in range(9):
 
     alpha = 1 - i/10
     beta = i/10
@@ -47,7 +47,7 @@ for i in range(8):
     frames.append(new_img)
 
 
-width, height, channels = new_img.shape
+height, width, channels = new_img.shape
 size = (width, height)
 
 fourcc = cv.VideoWriter_fourcc(*'DIVX')
