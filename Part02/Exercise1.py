@@ -39,7 +39,7 @@ for i in range(8):
 
     alpha = 1 - i/10
     beta = i/10
-    right_part = cv.addWeighted(imgR, alpha, img_black, beta, 0)
+    right_part = cv.addWeighted(imgR, alpha, img_black, beta, 0)  # podia fazer tudo de uma vez, isto e right part = cv.addWeighted(img[:, cols//2 : cols],...)
     new_img = np.hstack((imgL, right_part))
 
     cv.imshow('Nightfall', new_img)
@@ -47,7 +47,7 @@ for i in range(8):
     frames.append(new_img)
 
 
-height, width, channels = new_img.shape
+width, height, channels = new_img.shape
 size = (width, height)
 
 fourcc = cv.VideoWriter_fourcc(*'DIVX')
