@@ -22,7 +22,7 @@ min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)
 center = (max_loc[0] + w//2, max_loc[1] + h//2)
 
 
-cv.circle(img, center, 20 ,(0,255,255), -1)
+cv.circle(img, center, 20 ,(0,255,255), 5)
 
 plt.subplot(121), plt.imshow(imgray), plt.title('Original'), plt.xticks([]), plt.yticks([])
 plt.subplot(122), plt.imshow(img), plt.title('Wally was found'), plt.xticks([]), plt.yticks([])
