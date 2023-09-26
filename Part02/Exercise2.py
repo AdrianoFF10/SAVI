@@ -18,7 +18,7 @@ h, w = template.shape[:2]
 print('{} {}'.format(h,w))
 res = cv.matchTemplate(imgray, template, cv.TM_CCOEFF)
 
-min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)
+min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)   #os valores que nao sao pretendidos podem ser subst por _ - variaveis silenciosas
 
 center = (max_loc[0] + w//2, max_loc[1] + h//2)
 

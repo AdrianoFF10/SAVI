@@ -14,14 +14,13 @@ template = cv.imread('/home/adrianoff10/Desktop/SAVI/Part02/images/wally.png')
 assert template is not None, 'could not read this file'
 tempgray = cv.cvtColor(template, cv.COLOR_BGR2GRAY)
 
-w, h = template.shape[:2]
-
+w, h = template.shape[:2]    # grava da forma colunas, rows
+print('{}, {}'.format(w,h))
 
 res = cv.matchTemplate(imgray, tempgray, cv.TM_CCOEFF)
-
 min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)
-
-top_left = max_loc
+top_left = max_loc     # grava da forma coluna, rows     os valores que nao sao pretendidos podem ser subst por _ - variaveis silenciosas
+print(top_left)   
 
 imgray = cv.cvtColor(imgray, cv.COLOR_GRAY2BGR)
 print(img.shape)
