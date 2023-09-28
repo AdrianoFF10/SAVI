@@ -23,21 +23,27 @@ for i in range(8):
             img[row, col, 2] = max(img2[row, col, 2] - 8 * i, 0)   #red chanel
 
     cv.imshow('image', img)
-    cv.waitKey(100)
+    cv.waitKey(10)
     frames.append(img)
 
 
 
-height, width, channels = img.shape
+#width, height, _ = img[0].shape
+#size = (width, height)
+
+width, height,_ = frames[0].shape
 size = (width, height)
 
-fourcc = cv.VideoWriter_fourcc(*'DIVX')
-out = cv.VideoWriter('Nightfallvid_Class.avi', fourcc, 8.0, size)
+
+fourcc = cv.VideoWriter_fourcc(*'XVID')
+out = cv.VideoWriter('Nightfallvid_Class.avi', fourcc, 3.0, size)
 
 for n in range(len(frames)):
     out.write(frames[n])
 
 out.release()
+
+cv.waitKey(10)
 cv.destroyAllWindows()
 
 

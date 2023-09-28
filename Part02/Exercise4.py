@@ -24,12 +24,12 @@ print(top_left)
 
 imgray = cv.cvtColor(imgray, cv.COLOR_GRAY2BGR)
 print(img.shape)
-print(template.shape)
+#print(template.shape)
 
 print(top_left[0])
-print(top_left[0] + w)
+print(top_left[0] + h)
 print(top_left[1] )
-print(top_left[1] + h)
+print(top_left[1] + w)
 
 
 imgray[top_left[1] : top_left[1] + w, top_left[0] : top_left[0] + h] = template

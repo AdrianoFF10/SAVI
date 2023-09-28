@@ -58,8 +58,8 @@ for n in range(len(frames)):
 
 out.release()
 
-#cv.imshow('Nightfall', new_img)
-cv.waitKey()
+cv.imshow('Nightfall', new_img)
+cv.waitKey(100)
 cv.destroyAllWindows()
 
 
