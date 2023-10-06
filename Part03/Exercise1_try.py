@@ -27,10 +27,13 @@ erode_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
 dilate_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 31))
 
 cap = cv2.VideoCapture('/home/adrianoff10/Desktop/traffic.mp4')
-sucess, frame = cap.read()
 
-while sucess:
+while (1):
+    ret, frame = cap.read()
 
+    if ret is not True:
+        break
+    
     fg_mask = bg_subtractor.apply(frame)
     _, thresh = cv2.threshold(fg_mask, 220, 255, cv2.THRESH_BINARY)
     cv2.erode(thresh, erode_kernel, thresh, iterations=3)
@@ -71,14 +74,12 @@ while sucess:
 
     cv2.putText(frame, "VEHICLE COUNT : "+str(cars), (320, 70), cv2.FONT_HERSHEY_COMPLEX, 2, (0, 0, 255), 4)
     cv2.imshow("Video Original", frame)
-    cv2.imshow(" Thresh ", thresh)
-    
-    if cv2.waitKey(30) == 27:
+    cv2.imshow("Thresh ", thresh)
+    cv2.imshow("Background ", fg_mask)
 
-        break   
+    k = cv2.waitKey(25)  
+    if k == 27:
 
-    success, frame = cap.read()
-     
-
+        break     
 cv2.destroyAllWindows()
 cap.release()
